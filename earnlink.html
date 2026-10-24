@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123d35">
+<title>EarnLink | Online Jobs</title>
+<style>
+:root{--green:#123d35;--lime:#d9f99d;--bg:#f5f7f5;--muted:#64716b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#18251f}
+header{background:var(--green);color:white;padding:20px}
+nav,.wrap{max-width:900px;margin:auto}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-size:23px;font-weight:bold}.logo span{color:var(--lime)}
+button,select,input{font:inherit}button{cursor:pointer}
+.navbtn{border:1px solid #ffffff66;border-radius:8px;background:transparent;color:white;padding:9px 12px}
+.hero{max-width:900px;margin:32px auto 20px;padding:0 20px 20px}
+.hero h1{font-size:clamp(30px,7vw,46px);line-height:1.1;margin:0 0 12px}
+.hero p{color:#e2eee8;line-height:1.6}
+.pill{display:inline-block;background:#ffffff18;border:1px solid #ffffff35;padding:6px 10px;border-radius:20px;font-size:12px}
+.wrap{padding:20px}
+.searchbox{background:white;padding:16px;border-radius:14px;box-shadow:0 3px 14px #102e2010}
+input,select{width:100%;padding:13px;border:1px solid #dce3de;border-radius:8px;background:white;margin-bottom:10px;color:#18251f}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+h2{font-size:22px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.muted{color:var(--muted);font-size:13px}
+.jobs{display:grid;gap:14px}
+.job{background:white;border:1px solid #e3e9e4;padding:17px;border-radius:13px}
+.jobtop{display:flex;justify-content:space-between;gap:10px}
+.job h3{margin:0 0 7px;font-size:18px}
+.tag{display:inline-block;background:#eef5ef;color:#28583e;padding:6px 8px;border-radius:6px;margin:5px 4px 5px 0;font-size:12px}
+.demo{color:#845400;background:#fff4d8}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.primary,.secondary{padding:10px 13px;border-radius:8px;text-decoration:none;display:inline-block;border:0;font-weight:bold;font-size:13px}
+.primary{background:var(--green);color:white}.secondary{background:#e9efe9;color:var(--green)}
+.notice{background:#fff8e7;border:1px solid #f1dfac;border-radius:10px;padding:13px;line-height:1.5;font-size:13px}
+footer{padding:25px 20px;text-align:center;color:var(--muted);font-size:12px}
+.empty{background:white;padding:25px;border-radius:12px;text-align:center}
+@media(min-width:650px){.jobs{grid-template-columns:1fr 1fr}.searchrow{display:grid;grid-template-columns:2fr 1fr;gap:10px}}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">Earn<span>Link</span></div>
+    <button class="navbtn" id="savedToggle">♡ Saved (<span id="savedCount">0</span>)</button>
+  </nav>
+  <div class="hero">
+    <span class="pill">YOUR GLOBAL OPPORTUNITY HUB</span>
+    <h1>Find work.<br>Build your future.</h1>
+    <p>Discover remote jobs and opportunities that match your skills, wherever you live.</p>
+  </div>
+</header>
+<main class="wrap">
+  <div class="notice"><strong>Stay safe online.</strong> Never pay someone to guarantee you a job. Verify employers and check eligibility before sharing personal information.</div>
+  <section class="searchbox" style="margin-top:18px">
+    <h2 style="margin-top:0">Find your opportunity</h2>
+    <div class="searchrow">
+      <input id="search" placeholder="Search jobs or skills..." aria-label="Search jobs">
+      <select id="category" aria-label="Job category">
+        <option value="">All categories</option><option>Writing</option><option>Design</option><option>Technology</option><option>Customer Support</option><option>Data Entry</option>
+      </select>
+    </div>
+    <select id="type" aria-label="Work type"><option value="">All work types</option><option>Remote</option><option>Freelance</option></select>
+  </section>
+  <div class="sectionhead"><h2 id="heading">Explore opportunities</h2><span class="muted" id="count"></span></div>
+  <div id="jobs" class="jobs"></div>
+  <section style="margin-top:25px">
+    <h2>Explore job platforms</h2>
+    <p class="muted">These links open external platforms. Their listings, fees and country eligibility vary.</p>
+    <div class="job"><h3>We Work Remotely</h3><p class="muted">Remote jobs in multiple industries.</p><a class="primary" href="https://weworkremotely.com/" target="_blank" rel="noopener">Explore jobs ↗</a></div>
+    <div class="job" style="margin-top:10px"><h3>Remote OK</h3><p class="muted">Search remote opportunities worldwide.</p><a class="primary" href="https://remoteok.com/" target="_blank" rel="noopener">Explore jobs ↗</a></div>
+    <div class="job" style="margin-top:10px"><h3>Upwork</h3><p class="muted">Freelance projects and client work.</p><a class="primary" href="https://www.upwork.com/" target="_blank" rel="noopener">Explore projects ↗</a></div>
+  </section>
+</main>
+<footer>EarnLink · Find opportunities responsibly.<br>Independent project; external platforms are not affiliated.</footer>
+<script>
+const examples=[
+{id:1,title:"Freelance Article Writer",company:"Illustrative example",category:"Writing",type:"Freelance",description:"Write clear articles and helpful online content.",skills:"Writing, research, communication",url:"https://www.upwork.com/"},
+{id:2,title:"Junior Graphic Designer",company:"Illustrative example",category:"Design",type:"Remote",description:"Create simple graphics and social media designs.",skills:"Canva, design, creativity",url:"https://weworkremotely.com/"},
+{id:3,title:"Website Development Projects",company:"Illustrative example",category:"Technology",type:"Freelance",description:"Build and improve websites for clients.",skills:"HTML, CSS, JavaScript",url:"https://www.upwork.com/"},
+{id:4,title:"Remote Customer Support",company:"Illustrative example",category:"Customer Support",type:"Remote",description:"Help customers through online communication.",skills:"Communication, problem-solving",url:"https://weworkremotely.com/"},
+{id:5,title:"Data Entry Projects",company:"Illustrative example",category:"Data Entry",type:"Freelance",description:"Organize information and check data accuracy.",skills:"Typing, spreadsheets, attention to detail",url:"https://www.upwork.com/"}
+];
+let saved=[];let showingSaved=false;
+const $=id=>document.getElementById(id);
+function render(){
+ const q=$("search").value.toLowerCase().trim(),cat=$("category").value,type=$("type").value;
+ let list=examples.filter(j=>(j.title+" "+j.category+" "+j.skills+" "+j.description).toLowerCase().includes(q)&&(!cat||j.category===cat)&&(!type||j.type===type));
+ if(showingSaved){list=list.filter(j=>saved.includes(j.id));$("heading").textContent="Your saved jobs"}else{$("heading").textContent="Explore opportunities"}
+ $("count").textContent=list.length+" results";
+ if(!list.length){$("jobs").innerHTML='<div class="empty">No matching examples found. Try another search or category.</div>';return}
+ $("jobs").innerHTML=list.map(j=>`<article class="job">
+ <span class="tag demo">DEMO · NOT A LIVE VACANCY</span><h3>${j.title}</h3><p class="muted">${j.company}</p>
+ <span class="tag">${j.category}</span><span class="tag">${j.type}</span><p>${j.description}</p>
+ <p class="muted">Skills: ${j.skills}</p><p class="muted">Pay and eligibility not verified.</p>
+ <div class="actions"><button class="secondary" onclick="toggleSave(${j.id})">${saved.includes(j.id)?"♥ Saved":"♡ Save job"}</button>
+ <a class="primary" href="${j.url}" target="_blank" rel="noopener">Explore platform ↗</a></div></article>`).join("");
+}
+function toggleSave(id){saved=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];$("savedCount").textContent=saved.length;render()}
+$("search").addEventListener("input",render);$("category").addEventListener("change",render);$("type").addEventListener("change",render);
+$("savedToggle").addEventListener("click",()=>{showingSaved=!showingSaved;$("savedToggle").innerHTML=showingSaved?"← All jobs":'♡ Saved (<span id="savedCount">'+saved.length+'</span>)';render()});
+render();
+</script>
+</body>
+</html>
